@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "splash": {
+      "image": "./src/static/assets/alt_logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F6F6F6"
+    },
+  }
+}
