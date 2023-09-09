@@ -12,7 +12,8 @@ import {
   HomeTabParamList,
 } from "./src/navigation/types";
 import SplashScreen from "./src/screens/Splash";
-import Register from "./src/screens/Register";
+import RegisterScreen from "./src/screens/Register";
+import ForgotScreen from "./src/screens/Forgot";
 
 const Stack = createStackNavigator<RootStackParamList>();
 const SetupStack = createStackNavigator<SetupStackParamList>();
@@ -60,7 +61,8 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <SetupStack.Screen name="Login" component={LoginScreen} />
-          <SetupStack.Screen name="Register" component={Register} />
+          <SetupStack.Screen name="Register" component={RegisterScreen} />
+          <SetupStack.Screen name="Forgot" component={ForgotScreen} />
         </SetupStack.Navigator>
       </NavigationContainer>
     );

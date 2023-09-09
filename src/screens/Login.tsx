@@ -8,6 +8,7 @@ import {
   Dimensions,
 } from "react-native";
 import Logo from "../static/assets/logo_alt.svg";
+import NavigableText from "../components/NavigableText";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -19,14 +20,14 @@ export default function LoginScreen({ navigation }) {
     console.log("Password:", password);
   };
 
-  const navigateToRegister = () => {
-    // Navigate to the RegisterScreen when clicked
-    navigation.navigate("Register");
-  };
-
   return (
     <View style={styles.container}>
-      <Logo width={Dimensions.get("window").width * 0.6} height={Dimensions.get("window").height * 0.4} />
+
+      <Logo
+        width={Dimensions.get("window").width * 0.6}
+        height={Dimensions.get("window").height * 0.4}
+      />
+
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -35,6 +36,7 @@ export default function LoginScreen({ navigation }) {
         keyboardType="email-address"
         placeholderTextColor="#B3B3B3"
       />
+
       <TextInput
         style={styles.input}
         placeholder="Senha"
@@ -43,12 +45,20 @@ export default function LoginScreen({ navigation }) {
         secureTextEntry
         placeholderTextColor="#B3B3B3"
       />
+
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Entrar</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={navigateToRegister}>
-        <Text style={styles.registerText}>Não está cadastrado? Criar conta</Text>
-      </TouchableOpacity>
+
+      <View style={{ marginTop: 10 }}>
+        <NavigableText
+          text="Não está cadastrado? Criar conta"
+          textColor="#4285F4"
+          screenName="Register"
+          navigation={navigation}
+        />
+      </View>
+
     </View>
   );
 }
@@ -58,35 +68,29 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#F6F6F6", // Modern background color
-    paddingHorizontal: 20, // Add some horizontal padding
+    backgroundColor: "#F6F6F6", 
+    paddingHorizontal: 20, 
   },
   input: {
-    width: "100%", // Occupy the full width
+    width: "100%", 
     height: 40,
     borderWidth: 1,
-    borderColor: "#E4E4E4", // Input border color
+    borderColor: "#E4E4E4", 
     borderRadius: 5,
     marginBottom: 10,
     paddingLeft: 10,
-    color: "#333333", // Input text color
-    backgroundColor: "#FFFFFF", // Input background color
+    color: "#333333", 
+    backgroundColor: "#FFFFFF", 
   },
   loginButton: {
-    backgroundColor: "#4285F4", // Button background color
-    paddingVertical: 10, // Vertical padding
-    width: "100%", // Occupy the full width
+    backgroundColor: "#4285F4", 
+    paddingVertical: 10, 
+    width: "100%", 
     borderRadius: 5,
   },
   loginButtonText: {
-    color: "#FFFFFF", // Button text color
+    color: "#FFFFFF", 
     fontSize: 16,
     textAlign: "center",
   },
-  registerText: {
-    marginTop: 10,
-    color: "#4285F4", // Text color for the "Criar conta" link
-    textDecorationLine: "underline",
-  },
 });
-
