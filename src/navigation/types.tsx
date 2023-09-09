@@ -6,8 +6,6 @@ import type { StackScreenProps } from "@react-navigation/stack";
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
 export type RootStackParamList = {
-  Splash: undefined;
-  Login: undefined;
   Home: NavigatorScreenParams<HomeTabParamList>;
   PostDetails: { id: string };
   NotFound: undefined;
@@ -26,6 +24,15 @@ export type HomeTabScreenProps<T extends keyof HomeTabParamList> =
     BottomTabScreenProps<HomeTabParamList, T>,
     RootStackScreenProps<keyof RootStackParamList>
   >;
+
+export type SetupStackParamList = {
+  Splash: undefined;
+  Login: undefined;
+  Register: undefined;
+};
+
+export type SetupStackScreenProps<T extends keyof SetupStackParamList> =
+  StackScreenProps<SetupStackParamList, T>;
 
 declare global {
   namespace ReactNavigation {

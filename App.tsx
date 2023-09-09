@@ -1,20 +1,26 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeTabParamList, RootStackParamList } from "./src/navigation/types";
-import { createStackNavigator } from "@react-navigation/stack";
-import Home from "./src/screens/Home";
+import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Home from "./src/screens/Home";
 import PostDetails from "./src/screens/PostDetails";
 import NotFound from "./src/screens/NotFound";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useState } from "react";
 import LoginScreen from "./src/screens/Login";
+import {
+  RootStackParamList,
+  SetupStackParamList,
+  HomeTabParamList,
+} from "./src/navigation/types";
+import SplashScreen from "./src/screens/Splash";
+import Register from "./src/screens/Register";
 
-const Tab = createBottomTabNavigator<HomeTabParamList>();
 const Stack = createStackNavigator<RootStackParamList>();
+const SetupStack = createStackNavigator<SetupStackParamList>();
+const Tab = createBottomTabNavigator<HomeTabParamList>();
 
 function HomeStack() {
   return (
-    <Stack.Navigator initialRouteName="Splash">
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="PostDetails" component={PostDetails} />
       <Stack.Screen name="NotFound" component={NotFound} />
@@ -25,32 +31,37 @@ function HomeStack() {
 function RootNavigator() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Popular" component={Home} />
+      <Tab.Screen name="Popular" component={HomeStack} />
       <Tab.Screen name="Latest" component={PostDetails} />
     </Tab.Navigator>
   );
 }
 
-SplashScreen.preventAutoHideAsync();
-setTimeout(SplashScreen.hideAsync, 2000);
-
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    // Check if the user is authenticated, and update setIsAuthenticated accordingly
+    // For example, you can use AsyncStorage, a token check, or any other method.
+    // Once you determine authentication, update setIsAuthenticated(true);
+  }, []);
+
+  useEffect(() => {
+    // Prevent the splash screen from auto-hiding
+  }, []);
 
   if (!isAuthenticated) {
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
-          <Stack.Screen
-            name="Login"
-            component={LoginScreen}
-            options={
-              { headerShown: false } // Hide the title bar for Login screen
-            }
+        <SetupStack.Navigator initialRouteName="Splash">
+          <SetupStack.Screen
+            name="Splash"
+            component={SplashScreen}
+            options={{ headerShown: false }}
           />
-        </Stack.Navigator>
+          <SetupStack.Screen name="Login" component={LoginScreen} />
+          <SetupStack.Screen name="Register" component={Register} />
+        </SetupStack.Navigator>
       </NavigationContainer>
     );
   }
