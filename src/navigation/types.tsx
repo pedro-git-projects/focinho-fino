@@ -8,8 +8,8 @@ import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends RootStackParamList {}
-    interface SetupParamList extends SetupStackParamList{}
-    interface HomeParamList extends HomeTabParamList{}
+    interface SetupParamList extends SetupStackParamList {}
+    interface HomeParamList extends HomeTabParamList {}
   }
 }
 
@@ -42,4 +42,3 @@ export type HomeTabScreenProps<T extends keyof HomeTabParamList> =
     BottomTabScreenProps<HomeTabParamList, T>,
     RootStackScreenProps<keyof RootStackParamList>
   >;
-

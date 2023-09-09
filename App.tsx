@@ -60,9 +60,21 @@ export default function App() {
             component={SplashScreen}
             options={{ headerShown: false }}
           />
-          <SetupStack.Screen name="Login" component={LoginScreen} />
-          <SetupStack.Screen name="Register" component={RegisterScreen} />
-          <SetupStack.Screen name="Forgot" component={ForgotScreen} />
+          <SetupStack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{ headerShown: false }}
+          />
+          <SetupStack.Screen
+            name="Register"
+            component={RegisterScreen}
+            options={{ headerShown: false }}
+          />
+          <SetupStack.Screen
+            name="Forgot"
+            component={ForgotScreen}
+            options={{ headerShown: false }}
+          />
         </SetupStack.Navigator>
       </NavigationContainer>
     );

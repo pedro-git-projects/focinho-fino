@@ -56,7 +56,7 @@ export default function LoginScreen({ navigation }) {
       {loginFailed && (
         <Text style={{ marginTop: 10 }}>
           <NavigableText
-            text="Esqueceu os dados de login?"
+            text="Esqueceu a senha? Clique aqui para recuperar"
             textColor="#FF5733"
             screenName="Forgot" 
             navigation={navigation}
