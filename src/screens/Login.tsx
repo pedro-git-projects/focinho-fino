@@ -13,9 +13,11 @@ import NavigableText from "../components/NavigableText";
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginFailed, setLoginFailed] = useState(false);
 
   const handleLogin = () => {
     // TODO: handle login
+    setLoginFailed(true)
     console.log("Email:", email);
     console.log("Password:", password);
   };
@@ -50,6 +52,17 @@ export default function LoginScreen({ navigation }) {
         <Text style={styles.loginButtonText}>Entrar</Text>
       </TouchableOpacity>
 
+    {/* Conditional rendering based on loginFailed state */}
+      {loginFailed && (
+        <Text style={{ marginTop: 10 }}>
+          <NavigableText
+            text="Esqueceu os dados de login?"
+            textColor="#FF5733"
+            screenName="Forgot" 
+            navigation={navigation}
+          />
+        </Text>
+      )}
       <View style={{ marginTop: 10 }}>
         <NavigableText
           text="Não está cadastrado? Criar conta"

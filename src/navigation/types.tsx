@@ -7,7 +7,7 @@ import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
 declare global {
   namespace ReactNavigation {
-    interface ParamList extends RootStackParamList {}
+    interface RootParamList extends RootStackParamList {}
     interface SetupParamList extends SetupStackParamList{}
     interface HomeParamList extends HomeTabParamList{}
   }
