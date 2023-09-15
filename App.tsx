@@ -14,6 +14,7 @@ import {
 import SplashScreen from "./src/screens/Splash";
 import RegisterScreen from "./src/screens/Register";
 import ForgotScreen from "./src/screens/Forgot";
+import { ThemeProvider } from "./src/state/theme";
 
 const Stack = createStackNavigator<RootStackParamList>();
 const SetupStack = createStackNavigator<SetupStackParamList>();
@@ -53,6 +54,7 @@ export default function App() {
 
   if (!isAuthenticated) {
     return (
+    <ThemeProvider>
       <NavigationContainer>
         <SetupStack.Navigator initialRouteName="Splash">
           <SetupStack.Screen
@@ -77,6 +79,7 @@ export default function App() {
           />
         </SetupStack.Navigator>
       </NavigationContainer>
+      </ThemeProvider>
     );
   }
 
