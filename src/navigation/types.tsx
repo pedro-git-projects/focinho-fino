@@ -12,12 +12,11 @@ export type SetupStackScreenProps<T extends keyof SetupStackParamList> =
   StackScreenProps<SetupStackParamList, T>;
 
 export type MainTabsParamList = {
-  Explore: undefined;
-  Message: undefined;
-  Advertise: undefined;
-  Advertisements: undefined;
-  Menu: undefined;
+  Home: undefined;
   Search: undefined;
+  Advertise: undefined;
+  Message: undefined;
+  Menu: undefined;
 };
 
 export type MainTabsScreenProps<T extends keyof MainTabsParamList> =

@@ -6,7 +6,7 @@ const SearchScreen: React.FC<MainTabsScreenProps<"Explore">> = ({
 }) => {
   return (
     <View className="flex justify-center items-center h-full">
-      <Text> Yay, Searching</Text>
+      <Text> Yay, search</Text>
     </View>
   );
 };

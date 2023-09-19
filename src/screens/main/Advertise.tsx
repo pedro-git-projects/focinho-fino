@@ -6,7 +6,7 @@ const AdvertiseScreen: React.FC<MainTabsScreenProps<"Explore">> = ({
 }) => {
   return (
     <View className="flex justify-center items-center h-full">
-      <Text> Yay, Advertising</Text>
+      <Text> Yay, advertise</Text>
     </View>
   );
 };
