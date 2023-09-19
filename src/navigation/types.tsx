@@ -17,6 +17,7 @@ export type MainTabsParamList = {
   Advertise: undefined;
   Advertisements: undefined;
   Menu: undefined;
+  Search: undefined;
 };
 
 export type MainTabsScreenProps<T extends keyof MainTabsParamList> =

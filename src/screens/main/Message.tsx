@@ -1,1 +1,1 @@
-export default function MessageScreen() {}
+export default function MessageScreen({ navigation }) {}

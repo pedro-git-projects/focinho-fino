@@ -1,1 +1,1 @@
-export default function AdvertisementsScreen() {}
+export default function AdvertisementsScreen({ navigation }) {}

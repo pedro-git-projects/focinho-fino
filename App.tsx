@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "./src/state/theme";
 import { NativeWindStyleSheet } from "nativewind";
 import SetupNavigation from "./src/navigation/SetupStack";
+import MainTabsNavigation from "./src/navigation/MainTabs";
 
 NativeWindStyleSheet.setOutput({ default: "native" });
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   useEffect(() => {
     // Check if the user is authenticated, and update setIsAuthenticated accordingly
@@ -25,4 +26,9 @@ export default function App() {
       </ThemeProvider>
     );
   }
+  return (
+    <ThemeProvider>
+      <MainTabsNavigation />
+    </ThemeProvider>
+  );
 }
