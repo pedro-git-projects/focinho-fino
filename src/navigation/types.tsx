@@ -1,10 +1,5 @@
-import type { StackScreenProps } from "@react-navigation/stack";
-
-declare global {
-  namespace ReactNavigation {
-    interface SetupParamList extends SetupStackParamList {}
-  }
-}
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
+import { StackScreenProps } from "@react-navigation/stack";
 
 export type SetupStackParamList = {
   Splash: undefined;
@@ -15,3 +10,14 @@ export type SetupStackParamList = {
 
 export type SetupStackScreenProps<T extends keyof SetupStackParamList> =
   StackScreenProps<SetupStackParamList, T>;
+
+export type MainTabsParamList = {
+  Home: undefined;
+  Search: undefined;
+  Advertise: undefined;
+  Message: undefined;
+  Menu: undefined;
+};
+
+export type MainTabsScreenProps<T extends keyof MainTabsParamList> =
+  BottomTabScreenProps<MainTabsParamList, T>;
