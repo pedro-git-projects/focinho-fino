@@ -15,6 +15,9 @@ import SplashScreen from "./src/screens/Splash";
 import RegisterScreen from "./src/screens/Register";
 import ForgotScreen from "./src/screens/Forgot";
 import { ThemeProvider } from "./src/state/theme";
+import { NativeWindStyleSheet } from "nativewind";
+
+NativeWindStyleSheet.setOutput({default: "native"})
 
 const Stack = createStackNavigator<RootStackParamList>();
 const SetupStack = createStackNavigator<SetupStackParamList>();
