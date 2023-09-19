@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Dimensions } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Dimensions, Image } from "react-native";
 import { useTheme } from "../../state/theme";
-import Logo from "../../static/assets/logo_alt.svg";
 import NavigableText from "../../components/NavigableText";
 
 export default function LoginScreen({ navigation }) {
@@ -21,18 +20,22 @@ export default function LoginScreen({ navigation }) {
   return (
     <View className={`flex justify-center items-center h-full ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
 
-      <Logo
-        width={Dimensions.get("window").width * 0.6}
-        height={Dimensions.get("window").height * 0.4}
-      />
-
+    <Image
+        source={require("../../static/assets/alt_logo.png")}
+        style={{
+          width: Dimensions.get("window").width * 0.6,
+          height: Dimensions.get("window").height * 0.4,
+          resizeMode: "contain",
+          tintColor: darkMode ? "#FCF55F" : "black"
+        }}
+    />
 
      {
-      // <TouchableOpacity 
-      //   className="bg-blue-500 hover:bg-blue-700  py-2 px-4 rounded"  
-      //   onPress={toggleDarkMode}>
-      //   <Text className="text-white font-bold">Toggle Dark Mode</Text>
-      // </TouchableOpacity>
+      <TouchableOpacity 
+        className="bg-blue-500 hover:bg-blue-700  py-2 px-4 rounded"  
+        onPress={toggleDarkMode}>
+        <Text className="text-white font-bold">Toggle Dark Mode</Text>
+      </TouchableOpacity>
       }
 
       <TextInput
