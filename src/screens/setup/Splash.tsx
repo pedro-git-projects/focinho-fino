@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  View,
-  StyleSheet,
-  Animated,
-  Easing,
-  Dimensions,
-} from "react-native";
+import { View, StyleSheet, Animated, Easing, Dimensions } from "react-native";
 import Logo from "../../static/assets/logo_alt.svg";
 import { StackScreenProps } from "@react-navigation/stack";
 import { SetupStackParamList } from "../../navigation/types";

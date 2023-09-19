@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useTheme } from "../../state/theme";
 import { generateContainerStyles } from "../../styles/containers";
+import { textInput } from "../../styles/input";
+import { blueBtn, blueBtnText } from "../../styles/buttons";
+import { titleText } from "../../styles/text";
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState("");
@@ -23,32 +26,32 @@ export default function RegisterScreen({ navigation }) {
 
   return (
     <View className={containerClassName}>
-      <Text>Cadastro</Text>
+      <Text className={titleText}>Cadastro</Text>
 
       <TextInput
+        className={textInput}
         placeholder="Nome"
         onChangeText={(text) => setName(text)}
         value={name}
-        placeholderTextColor="#B3B3B3"
       />
 
       <TextInput
+        className={textInput}
         placeholder="Email"
         onChangeText={(text) => setEmail(text)}
         value={email}
         keyboardType="email-address"
-        placeholderTextColor="#B3B3B3"
       />
 
       <TextInput
-        placeholder="Senha"
+        className={textInput}
         onChangeText={(text) => setPassword(text)}
+        placeholder="Senha"
         value={password}
         secureTextEntry
-        placeholderTextColor="#B3B3B3"
       />
 
-      <View className="flex w-5/6">
+      <View className="flex w-5/6 bg-slate-200">
         <Picker
           selectedValue={userType}
           onValueChange={(itemValue) => setUserType(itemValue)}
@@ -58,8 +61,8 @@ export default function RegisterScreen({ navigation }) {
         </Picker>
       </View>
 
-      <TouchableOpacity onPress={handleRegister}>
-        <Text>Registrar</Text>
+      <TouchableOpacity onPress={handleRegister} className={blueBtn + " mt-5"}>
+        <Text className={blueBtnText}>Registrar</Text>
       </TouchableOpacity>
     </View>
   );
