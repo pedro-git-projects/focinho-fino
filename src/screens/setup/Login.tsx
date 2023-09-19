@@ -44,12 +44,12 @@ export default function LoginScreen({ navigation }) {
       />
 
       {
-        <TouchableOpacity
-          className="bg-blue-500 hover:bg-blue-700  py-2 px-4 rounded"
-          onPress={toggleDarkMode}
-        >
-          <Text className="text-white font-bold">Toggle Dark Mode</Text>
-        </TouchableOpacity>
+        // <TouchableOpacity
+        //   className="bg-blue-500 hover:bg-blue-700  py-2 px-4 rounded"
+        //   onPress={toggleDarkMode}
+        // >
+        //   <Text className="text-white font-bold">Toggle Dark Mode</Text>
+        // </TouchableOpacity>
       }
 
       <TextInput
