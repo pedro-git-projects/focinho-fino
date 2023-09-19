@@ -15,4 +15,3 @@ export type SetupStackParamList = {
 
 export type SetupStackScreenProps<T extends keyof SetupStackParamList> =
   StackScreenProps<SetupStackParamList, T>;
-

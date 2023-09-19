@@ -1,11 +1,6 @@
 import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { useTheme } from "../../state/theme";
 import { generateContainerStyles } from "../../styles/containers";
 
@@ -16,8 +11,7 @@ export default function RegisterScreen({ navigation }) {
   const [userType, setUserType] = useState("tosador"); // Default to "tosador"
   const { darkMode } = useTheme();
 
-  const containerClassName = generateContainerStyles(darkMode)
-
+  const containerClassName = generateContainerStyles(darkMode);
 
   const handleRegister = () => {
     // TODO: Handle user registration
@@ -29,7 +23,7 @@ export default function RegisterScreen({ navigation }) {
 
   return (
     <View className={containerClassName}>
-      <Text >Cadastro</Text>
+      <Text>Cadastro</Text>
 
       <TextInput
         placeholder="Nome"
@@ -54,7 +48,7 @@ export default function RegisterScreen({ navigation }) {
         placeholderTextColor="#B3B3B3"
       />
 
-      <View className="flex w-5/6" >
+      <View className="flex w-5/6">
         <Picker
           selectedValue={userType}
           onValueChange={(itemValue) => setUserType(itemValue)}
@@ -64,11 +58,9 @@ export default function RegisterScreen({ navigation }) {
         </Picker>
       </View>
 
-      <TouchableOpacity  onPress={handleRegister}>
-        <Text >Registrar</Text>
+      <TouchableOpacity onPress={handleRegister}>
+        <Text>Registrar</Text>
       </TouchableOpacity>
     </View>
   );
 }
-
-
