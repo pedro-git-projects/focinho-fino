@@ -1,18 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { ThemeProvider } from "./src/state/theme";
+import { NativeWindStyleSheet } from "nativewind";
+import SetupNavigation from "./src/navigation/SetupStack";
+
+NativeWindStyleSheet.setOutput({ default: "native" });
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
-}
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  useEffect(() => {
+    // Check if the user is authenticated, and update setIsAuthenticated accordingly
+    // For example, you can use AsyncStorage, a token check, or any other method.
+    // Once you determine authentication, update setIsAuthenticated(true);
+  }, []);
+
+  useEffect(() => {
+    // Prevent the splash screen from auto-hiding
+  }, []);
+
+  if (!isAuthenticated) {
+    return (
+      <ThemeProvider>
+        <SetupNavigation />
+      </ThemeProvider>
+    );
+  }
+}
