@@ -29,8 +29,6 @@ export default function LoginScreen({ navigation }) {
     console.log("Password:", password);
   };
 
-  console.log(containerClassNames);
-
   return (
     <View className={containerClassNames}>
       <Image
