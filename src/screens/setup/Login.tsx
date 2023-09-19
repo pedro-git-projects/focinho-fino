@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Dimensions, Image } from "react-native";
 import { useTheme } from "../../state/theme";
 import NavigableText from "../../components/NavigableText";
+import { textInput } from "../../styles/input";
+import { blueBtn } from "../../styles/buttons";
+import { generateContainerStyles } from "../../styles/containers";
 
 export default function LoginScreen({ navigation }) {
   const { darkMode, toggleDarkMode } = useTheme();
@@ -9,6 +12,8 @@ export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginFailed, setLoginFailed] = useState(false);
+  
+  const containerClassNames = generateContainerStyles(darkMode) 
 
   const handleLogin = () => {
     // TODO: handle login
@@ -17,8 +22,10 @@ export default function LoginScreen({ navigation }) {
     console.log("Password:", password);
   };
 
+  console.log(containerClassNames)
+
   return (
-    <View className={`flex justify-center items-center h-full ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+    <View className={containerClassNames}>
 
     <Image
         source={require("../../static/assets/alt_logo.png")}
@@ -39,7 +46,7 @@ export default function LoginScreen({ navigation }) {
       }
 
       <TextInput
-        className="bg-white border border-gray-300 rounded py-2 px-4 mb-4 w-5/6"
+        className={textInput}
         placeholder="Email"
         onChangeText={(text) => setEmail(text)}
         value={email}
@@ -47,7 +54,7 @@ export default function LoginScreen({ navigation }) {
       />
 
       <TextInput
-        className="bg-white border border-gray-300 rounded py-2 px-4 mb-4 w-5/6"
+        className={textInput}
         placeholder="Senha"
         onChangeText={(text) => setPassword(text)}
         value={password}
@@ -55,7 +62,7 @@ export default function LoginScreen({ navigation }) {
       />
 
       <TouchableOpacity 
-        className="bg-blue-500 hover:bg-blue-700  py-2 px-4 rounded"  
+        className={blueBtn}  
         onPress={handleLogin}>
         <Text className="text-white font-bold">Entrar</Text>
       </TouchableOpacity>

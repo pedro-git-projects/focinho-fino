@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useTheme } from "../../state/theme";
+import { generateContainerStyles } from "../../styles/containers";
 
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState("");
@@ -14,6 +15,8 @@ export default function RegisterScreen({ navigation }) {
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("tosador"); // Default to "tosador"
   const { darkMode } = useTheme();
+
+  const containerClassName = generateContainerStyles(darkMode)
 
 
   const handleRegister = () => {
@@ -25,7 +28,7 @@ export default function RegisterScreen({ navigation }) {
   };
 
   return (
-    <View className={`flex justify-center items-center h-full ${darkMode ? 'bg-gray-900' : 'bg-gray-100'}`}>
+    <View className={containerClassName}>
       <Text >Cadastro</Text>
 
       <TextInput
