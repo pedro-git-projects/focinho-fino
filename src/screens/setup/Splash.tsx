@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { View, Image, StyleSheet, Animated, Easing, Dimensions } from "react-native";
-import Logo from "../static/assets/logo_alt.svg";
+import Logo from "../../static/assets/logo_alt.svg";
 import {  StackScreenProps } from "@react-navigation/stack"; 
-import { SetupStackParamList } from "../navigation/types";
+import { SetupStackParamList } from "../../navigation/types";
 
 type SplashScreenProps = StackScreenProps<SetupStackParamList, "Splash">
 
